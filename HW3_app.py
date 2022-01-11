@@ -7,7 +7,7 @@ import pickle
 
 st.title("Predicting Hourly Bikeshare Rentals")
 
-url = r"https://github.com/mcs275/dat-class-repo/blob/main/Homework/Unit2/data/bikeshare.csv"
+url = r"https://github.com/mcs275/dat-class-repo/blob/main/Homework/Unit2/data/bikeshare.csv, parse_dates=['datetime']"
 
 num_rows = st.sidebar.number_input('Select Number of Rows to Load', 
                                    min_value = 1000, 
@@ -22,10 +22,10 @@ def load_data(num_rows):
     df = pd.read_csv(url, nrows = num_rows)
     return df
 
-@st.cache
-def create_grouping(x_axis, y_axis):
-    grouping = df.groupby(x_axis)[y_axis].mean()
-    return grouping
+##@st.cache
+##def create_grouping(x_axis, y_axis):
+ ##   grouping = df.groupby(x_axis)[y_axis].mean()
+ ##   return grouping
 
 def load_model():
     with open('pipe.pkl', 'rb') as pickled_mod:

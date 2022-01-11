@@ -11,9 +11,9 @@ import numpy as np
 import plotly.express as px
 import pickle
 
-st.title("My First Dashboard!!!!!!!")
+st.title("Predicting Hourly Bikeshare Rentals")
 
-url = r"https://raw.githubusercontent.com/JonathanBechtel/dat-11-15/main/ClassMaterial/Unit1/data/master.csv"
+url = r"https://github.com/mcs275/dat-class-repo/blob/main/Homework/Unit2/data/bikeshare.csv"
 
 num_rows = st.sidebar.number_input('Select Number of Rows to Load', 
                                    min_value = 1000, 
@@ -25,7 +25,7 @@ section = st.sidebar.radio('Choose Application Section', ['Data Explorer',
 
 @st.cache
 def load_data(num_rows):
-    df = pd.read_csv(url, parse_dates = ['visit_date'], nrows = num_rows)
+    df = pd.read_csv(url, nrows = num_rows)
     return df
 
 @st.cache
@@ -46,8 +46,7 @@ if section == 'Data Explorer':
     x_axis = st.sidebar.selectbox("Choose column for X-axis", 
                                   df.select_dtypes(include = np.object).columns.tolist())
     
-    y_axis = st.sidebar.selectbox("Choose column for y-axis", ['visitors', 
-                                                               'reserve_visitors'])
+    y_axis = st.sidebar.selectbox("Choose column for y-axis", ['count' ])
     
     chart_type = st.sidebar.selectbox("Choose Your Chart Type", 
                                       ['line', 'bar', 'area'])
