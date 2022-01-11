@@ -19,7 +19,7 @@ section = st.sidebar.radio('Choose Application Section', ['Data Explorer',
 
 @st.cache
 def load_data(num_rows):
-    df = pd.read_csv(url, nrows = num_rows)
+    df = pd.read_csv(url, sep=";", nrows = num_rows)
     return df
 
 @st.cache
