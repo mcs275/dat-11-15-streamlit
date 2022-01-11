@@ -7,7 +7,7 @@ import pickle
 
 st.title("Predicting Bikeshare Rentals")
 
-url = r"https://github.com/mcs275/dat-11-15-streamlit/blob/main/bikeshare.csv"
+url = r"https://raw.githubusercontent.com/mcs275/dat-11-15-streamlit/main/bikeshare.csv"
 
 num_rows = st.sidebar.number_input('Select Number of Rows to Load', 
                                    min_value = 1000, 
@@ -19,7 +19,7 @@ section = st.sidebar.radio('Choose Application Section', ['Data Explorer',
 
 @st.cache
 def load_data(num_rows):
-    df = pd.read_csv(url, sep=",",  on_bad_lines='skip', nrows = num_rows)
+    df = pd.read_csv(url, sep=",", nrows = num_rows)
     return df
 
 @st.cache
@@ -63,29 +63,30 @@ else:
     model = load_model()
     
     
-##    days_val = st.sidebar.selectbox("Choose Number of Days since start of data", 
-##                                 df['Days'].unique().tolist()),
+    days_val = st.sidebar.number_input("Enter Number of Days since start of data", 
+                                 min_value = 0, max_value = 100, step = 1, value = 20),
     
-  ##  time_val = st.sidebar.selectbox("Choose Time of Day", 
- ##                                 df['time_of_day'].unique().tolist() )
+    time_val = st.sidebar.selectbox("Choose Time of Day", 
+                                df['time_of_day'].unique().tolist() )
     
- ##   dayofweek_val = st.sidebar.selectbox("Choose Day of Week", 
-  ##                                df['day_of_week'].unique().tolist() ),
+    dayofweek_val = st.sidebar.selectbox("Choose Day of Week", 
+                                 df['day_of_week'].unique().tolist() ),
 
     weather_val = st.sidebar.selectbox("Choose Weather", 
                                   df['weather'].unique().tolist() ),
     
- ##   last_hour = st.sidebar.number_input("How many bike shares rented prior hour?", min_value = 0,
-   ##                                     max_value = 500, step = 1, value = 20)
-    season = st.sidebar.selectbox("Season", 
+    last_hour = st.sidebar.number_input("How many bike shares rented prior hour?", min_value = 0,
+                                    max_value = 500, step = 1, value = 20)
+    
+    season = st.sidebar.selectbox("season", 
                                        df['season'].unique().tolist())
     
     sample = {
-  ##  'Days': days_val,
-##    'time_of_day': time_val,
-  ##  'day_of_week': dayofweek_val,
+   'Days': days_val,
+   'time_of_day': time_val,
+   'day_of_week': dayofweek_val,
     'weather': weather_val,
-   ## '1hourago': last_hour,
+   '1hourago': last_hour,
     'season': season
     }
 
