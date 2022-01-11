@@ -62,8 +62,8 @@ else:
     st.text("Choose Options to the Side to Explore the Model")
     model = load_model()
     
-    days_val = st.sidebar.selectbox("Choose Number of Days since start of data", 
-                                  df['Days'].unique().tolist()),
+##    days_val = st.sidebar.selectbox("Choose Number of Days since start of data", 
+##                                 df['Days'].unique().tolist()),
     
     time_val = st.sidebar.selectbox("Choose Time of Day", 
                                   df['time_of_day'].unique().tolist() )
@@ -75,12 +75,12 @@ else:
                                   df['weather'].unique().tolist() ),
     
     last_hour = st.sidebar.number_input("How many bike shares rented prior hour?", min_value = 0,
-                                        max_value = 100, step = 1, value = 20)
+                                        max_value = 500, step = 1, value = 20)
     season = st.sidebar.selectbox("Season", 
                                        df['season'].unique().tolist())
     
     sample = {
-    'Days': days_val,
+  ##  'Days': days_val,
     'time_of_day': time_val,
     'day_of_week': dayofweek_val,
     'weather': weather_val,
