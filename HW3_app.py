@@ -62,8 +62,6 @@ else:
     st.text("Choose Options to the Side to Explore the Model")
     model = load_model()
     
-    datetime_val = st.sidebar.selectbox("Choose Date and Time", 
-                                  df['datetime'].unique().tolist() ),
     
 ##    days_val = st.sidebar.selectbox("Choose Number of Days since start of data", 
 ##                                 df['Days'].unique().tolist()),
@@ -88,8 +86,7 @@ else:
   ##  'day_of_week': dayofweek_val,
     'weather': weather_val,
    ## '1hourago': last_hour,
-    'season': season,
-    'datetime': datetime_val
+    'season': season
     }
 
     sample = pd.DataFrame(sample, index = [0])
