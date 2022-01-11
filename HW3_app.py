@@ -5,7 +5,7 @@ import numpy as np
 import plotly.express as px
 import pickle
 
-st.title("Predicting Hourly Bikeshare Rentals")
+st.title("Predicting Bikeshare Rentals")
 
 url = r"https://github.com/mcs275/dat-11-15-streamlit/blob/main/bikeshare.csv"
 
@@ -19,7 +19,7 @@ section = st.sidebar.radio('Choose Application Section', ['Data Explorer',
 
 @st.cache
 def load_data(num_rows):
-    df = pd.read_csv(url, nrows = num_rows)
+    df = pd.read_csv(url, parse_dates = ['datetime'], nrows = num_rows)
     return df
 
 @st.cache
