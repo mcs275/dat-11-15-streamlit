@@ -47,11 +47,11 @@ if section == 'Data Explorer':
     
     if chart_type == 'line':
         grouping = create_grouping(x_axis, y_axis)
-        st.line_chart(grouping, height=1000)
+        st.line_chart(grouping, height=500)
         
     elif chart_type == 'bar':
         grouping = create_grouping(x_axis, y_axis)
-        st.bar_chart(grouping)
+        st.bar_chart(grouping,height=500)
         
     elif chart_type == 'area':
         fig = px.strip(df[[x_axis, y_axis]], x=x_axis, y=y_axis)
