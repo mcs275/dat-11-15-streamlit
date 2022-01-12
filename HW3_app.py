@@ -54,7 +54,7 @@ if section == 'Data Explorer':
         
     elif chart_type == 'bar':
        grouping = create_grouping(x_axis, y_axis)
-       fig = px.bar(grouping, text=True)
+       fig = px.bar(grouping, text_auto=True)
        fig.update_layout(autosize=False, width=800, height=500)
        st.plotly_chart(fig)
         
