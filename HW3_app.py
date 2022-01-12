@@ -22,7 +22,7 @@ def load_data(num_rows):
     df = pd.read_csv(url, nrows = num_rows)
     return df
 
-@st.cache
+##@st.cache
 def create_grouping(x_axis, y_axis):
     grouping = df.groupby(x_axis)[y_axis].mean()
     return grouping
