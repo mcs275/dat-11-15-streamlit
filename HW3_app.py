@@ -5,7 +5,7 @@ import numpy as np
 import plotly.express as px
 import pickle
 
-st.title("Predicting Bikeshare Rentals")
+st.title("Predicting Number of Bikes Rented Per Hour for City Bikeshare Program")
 
 url = r"https://raw.githubusercontent.com/mcs275/dat-11-15-streamlit/main/bikeshare.csv"
 
@@ -40,7 +40,7 @@ if section == 'Data Explorer':
     x_axis = st.sidebar.selectbox("Choose column for X-axis", 
                                   df.select_dtypes(include = np.object).columns.tolist())
     
-    y_axis = st.sidebar.selectbox("Choose column for y-axis", ['count'])
+    y_axis = st.sidebar.selectbox("Number of bikes rented during hour")
     
     chart_type = st.sidebar.selectbox("Choose Your Chart Type", 
                                       ['line', 'bar', 'area'])
