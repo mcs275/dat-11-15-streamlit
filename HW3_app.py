@@ -48,7 +48,7 @@ if section == 'Data Explorer':
     if chart_type == 'line':
         grouping = create_grouping(x_axis, y_axis)
         fig = px.line(grouping)
-        fig.update_layout(title='Avg bike share count',autosize=False, width=400, height=400)
+        fig.update_layout(autosize=False, width=1000, height=500)
         st.plotly_chart(fig)
         
     elif chart_type == 'bar':
