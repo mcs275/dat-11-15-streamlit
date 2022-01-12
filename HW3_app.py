@@ -47,7 +47,7 @@ if section == 'Data Explorer':
     
     if chart_type == 'line':
         grouping = create_grouping(x_axis, y_axis)
-        st.line_chart(grouping)
+        st.line_chart(grouping, height=100)
         
     elif chart_type == 'bar':
         grouping = create_grouping(x_axis, y_axis)
