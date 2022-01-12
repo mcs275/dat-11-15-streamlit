@@ -49,8 +49,8 @@ if section == 'Data Explorer':
     if chart_type == 'line':
        # grouping = create_grouping(x_axis, y_axis)
         group = df.groupby(x_axis)[y_axis].mean()
-        fig = px.line(group)
-        fig.update_layout(autosize=False, width=800, height=500)
+        fig = px.line(group, markers=True)
+        fig.update_layout(autosize=False, width=1000, height=500)
         st.plotly_chart(fig)
         
     elif chart_type == 'bar':
