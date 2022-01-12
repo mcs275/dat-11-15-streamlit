@@ -44,12 +44,12 @@ if section == 'Data Explorer':
     y_axis = st.sidebar.selectbox("Choose column for y-axis", ['count'])
     
     chart_type = st.sidebar.selectbox("Choose Your Chart Type", 
-                                      ['scatter', 'bar', 'area'])
+                                      ['line', 'bar', 'area'])
     
-    if chart_type == 'scatter':
+    if chart_type == 'line':
        # grouping = create_grouping(x_axis, y_axis)
         group = df.groupby(x_axis)[y_axis].mean()
-        fig = px.scatter(group, trendline='ols')
+        fig = px.line(group)
      ##   fig.update_layout(autosize=False, width=1000, height=500)
         st.plotly_chart(fig)
         
