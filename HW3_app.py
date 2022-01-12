@@ -10,9 +10,9 @@ st.title("Predicting Number of Bikes Rented Per Hour for City Bikeshare Program"
 url = r"https://raw.githubusercontent.com/mcs275/dat-class-repo/main/Homework/Unit2/data/bikeshare.csv"
 
 num_rows = st.sidebar.number_input('Select Number of Rows to Load', 
-                                   min_value = 1000, 
+                                   min_value = 100, 
                                    max_value = 11000, 
-                                   step = 1000)
+                                   step = 100)
 
 section = st.sidebar.radio('Choose Application Section', ['Data Explorer', 
                                                           'Model Explorer'])
@@ -46,10 +46,10 @@ if section == 'Data Explorer':
     chart_type = st.sidebar.selectbox("Choose Your Chart Type", 
                                       ['line', 'bar', 'area'])
     
-    if chart_type == 'line':
+    if chart_type == 'scatter':
        # grouping = create_grouping(x_axis, y_axis)
         group = df.groupby(x_axis)[y_axis].mean()
-        fig = px.line(group, markers=True)
+        fig = px.scatter(group, trendline='ols')
      ##   fig.update_layout(autosize=False, width=1000, height=500)
         st.plotly_chart(fig)
         
