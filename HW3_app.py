@@ -55,8 +55,8 @@ if section == 'Data Explorer':
         st.plotly_chart(fig)
         
     elif chart_type == 'bar':
-        grouping = create_grouping(x_axis, y_axis)
-        fig = px.bar(grouping)
+       ## grouping = create_grouping(x_axis, y_axis)
+        fig = px.bar(df, x-axis, y-axis)
         st.plotly_chart(fig)
        ## st.bar_chart(grouping)
         
