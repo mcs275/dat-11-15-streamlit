@@ -19,7 +19,7 @@ section = st.sidebar.radio('Choose Application Section', ['Data Explorer',
 
 @st.cache
 def load_data(num_rows):
-    df = pd.read_csv(url, sep=",", nrows = num_rows)
+    df = pd.read_csv(url, parse_dates=['datetime'], nrows = num_rows )
     return df
 
 @st.cache
@@ -40,7 +40,7 @@ if section == 'Data Explorer':
     x_axis = st.sidebar.selectbox("Choose column for X-axis", 
                                   df.select_dtypes(include = np.object).columns.tolist())
     
-    y_axis = st.sidebar.selectbox("Number of bikes rented during hour", ['count'])
+    y_axis = df['count']
     
     chart_type = st.sidebar.selectbox("Choose Your Chart Type", 
                                       ['line', 'bar', 'area'])
@@ -48,7 +48,7 @@ if section == 'Data Explorer':
     if chart_type == 'line':
         grouping = create_grouping(x_axis, y_axis)
         fig = px.line(grouping)
-        fig.update_layout(autosize=False, width=1000, height=500)
+        fig.update_layout(autosize=False, width=800, height=500)
         st.plotly_chart(fig)
         
     elif chart_type == 'bar':
