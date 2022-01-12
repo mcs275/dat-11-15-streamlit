@@ -68,7 +68,7 @@ else:
                                 min_value = 0, max_value = 10000, step = 1, value = 20)
     
     time_of_day = st.sidebar.selectbox("Choose Time of Day", 
-                               df['time_of_day'].unique())
+                               df['time_of_day'].unique().tolist())
     
     dayofweek_val = st.sidebar.selectbox("Choose Day of Week", 
                                df['day_of_week'].unique().tolist() )
