@@ -67,19 +67,19 @@ else:
     days_val = st.sidebar.number_input("Enter Number of Days since start of data", 
                                 min_value = 0, max_value = 10000, step = 1, value = 20)
     
-    time_of_day = st.sidebar.number_input("Choose Time of Day",
+    time_of_day = st.sidebar.number_input("Choose Time of Day  (1=Early am, 2=AM rush, 3=midday, 4=PM rush, 5=Night",
                                           min_value=1, max_value=5, value = 2)
                               
     
-    dayofweek_val = st.sidebar.selectbox("Choose Day of Week", 
-                               df['day_of_week'].unique().tolist() )
+    dayofweek_val = st.sidebar.number_input("Choose Day of Week", 
+                                            min_value=1, max_value =7, value=3)
 
-    weather_val = st.sidebar.selectbox("Choose Weather", 
-                                  df['weather'].unique().tolist())
+    weather_val = st.sidebar.number_input("Choose Weather", 
+                                  min_value=1, max_value =4, value=3)
    
     
-    season = st.sidebar.selectbox("season", 
-                                       df['season'].unique().tolist())
+    season = st.sidebar.number_input("Choose Season", 
+                                       min_value=1, max_value =4, value=3)
     
     holiday = st.sidebar.selectbox("Select if it's a holiday", 
                                        df['holiday'].unique().tolist())
