@@ -54,9 +54,9 @@ if section == 'Data Explorer':
         
     elif chart_type == 'bar':
        ## grouping = create_grouping(x_axis, y_axis)
-        fig = px.bar(df, x=x_axis, y=y_axis)
-        st.plotly_chart(fig)
-       ## st.bar_chart(grouping)
+       group = df.groupby(x_axis)[y_axis].mean()
+       fig = px.bar(group)
+       st.plotly_chart(fig)
         
     elif chart_type == 'area':
         fig = px.strip(df[[x_axis, y_axis]], x=x_axis, y=y_axis)
