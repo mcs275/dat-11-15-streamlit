@@ -20,7 +20,6 @@ section = st.sidebar.radio('Choose Application Section', ['Data Explorer',
 @st.cache
 def load_data(num_rows):
     df = pd.read_csv(url, nrows = num_rows)
-    df = df.sort_values(by=['datetime'])
     return df
 
 @st.cache
@@ -54,7 +53,7 @@ if section == 'Data Explorer':
         
     elif chart_type == 'bar':
        grouping = create_grouping(x_axis, y_axis)
-       fig = px.bar(grouping, text_auto=True, labels={'y':'Average # of bikes rented'})
+       fig = px.bar(grouping, text_auto=True)
        fig.update_layout(autosize=False, width=800, height=500)
        st.plotly_chart(fig)
         
