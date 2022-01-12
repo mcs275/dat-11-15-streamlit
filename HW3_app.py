@@ -69,29 +69,30 @@ else:
     
     time_of_day = st.sidebar.number_input("Choose Time of Day  (1=Early am, 2=AM rush, 3=midday, 4=PM rush, 5=Night",
                                           min_value=1, max_value=5, value = 2)
+                                         
                               
     
-    dayofweek_val = st.sidebar.number_input("Choose Day of Week", 
-                                            min_value=1, max_value =7, value=3)
+    dayofweek_val = st.sidebar.number_input("Choose Day of Week (0=Monday, 6=Sunday)", 
+                                            min_value=0, max_value =6, value=0)
 
-    weather_val = st.sidebar.number_input("Choose Weather", 
+    weather_val = st.sidebar.number_input("Choose Weather (1=clear sies, 2=partly cloudly, 3=light storms, 4=heavy storms", 
                                   min_value=1, max_value =4, value=3)
    
     
-    season = st.sidebar.number_input("Choose Season", 
+    season = st.sidebar.number_input("Choose Season (1=spring, 2=summer, 3=fall, 4=winter", 
                                        min_value=1, max_value =4, value=3)
     
-    holiday = st.sidebar.selectbox("Select if it's a holiday", 
+    holiday = st.sidebar.selectbox("Select if it's a holiday (1=Yes, 0=No)", 
                                        df['holiday'].unique().tolist())
     
-    workingday = st.sidebar.selectbox("Select if a working day", 
+    workingday = st.sidebar.selectbox("Select if a working day (1=Yes, 0=No)", 
                                        df['workingday'].unique().tolist())
     
-    temp = st.sidebar.number_input("What is the temperature (celsius)?", min_value = 0,
-                                    max_value = 50, step = 0.5, value = 20)
+    temp = st.sidebar.number_input("What is the temperature (celsius)?", min_value = 0.0,
+                                    max_value = 50.0, step = 0.5, value = 20.0)
     
-    avg_temp = st.sidebar.number_input("What is the average day temperature?", min_value = 0,
-                                    max_value = 50, step = 0.5, value = 23)
+    avg_temp = st.sidebar.number_input("What is the average day temperature?", min_value = 0.0,
+                                    max_value = 50.0, step = 0.5, value = 23.0)
     
     humidity = st.sidebar.number_input("What is the humidity?", min_value = 0,
                                     max_value = 100, step = 5, value = 25)
