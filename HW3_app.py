@@ -67,8 +67,8 @@ else:
     days_val = st.sidebar.number_input("Enter Number of Days since start of data", 
                                 min_value = 0, max_value = 10000, step = 1, value = 20)
     
-    time_val = st.sidebar.selectbox("Choose Time of Day", 
-                               df['time_of_day'].unique().tolist())
+    time_of_day = st.sidebar.selectbox("Choose Time of Day", 
+                               df['time_of_day'].unique())
     
     dayofweek_val = st.sidebar.selectbox("Choose Day of Week", 
                                df['day_of_week'].unique().tolist() )
@@ -111,7 +111,7 @@ else:
                                     max_value = 1500, step = 1, value = 191)
     sample = {
         'Days': days_val,
-        'time_of_day': time_val,
+        'time_of_day': time_of_day,
         'day_of_week': dayofweek_val,
         'weather': weather_val,
         '1hourago': last_hour,
