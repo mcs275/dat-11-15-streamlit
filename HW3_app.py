@@ -11,7 +11,7 @@ url = r"https://raw.githubusercontent.com/mcs275/dat-11-15-streamlit/main/bikesh
 
 num_rows = st.sidebar.number_input('Select Number of Rows to Load', 
                                    min_value = 100, 
-                                   max_value = 10887, 
+                                   max_value = 11000, 
                                    step = 100)
 
 section = st.sidebar.radio('Choose Application Section', ['Data Explorer', 
@@ -19,7 +19,7 @@ section = st.sidebar.radio('Choose Application Section', ['Data Explorer',
 
 @st.cache
 def load_data(num_rows):
-    df = pd.read_csv(url, parse_dates=['datetime'], nrows = num_rows )
+    df = pd.read_csv(url, nrows = num_rows )
     return df
 
 @st.cache
