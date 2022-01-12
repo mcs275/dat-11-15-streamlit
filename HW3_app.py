@@ -47,8 +47,9 @@ if section == 'Data Explorer':
                                       ['line', 'bar', 'area'])
     
     if chart_type == 'line':
-        grouping = create_grouping(x_axis, y_axis)
-        fig = px.line(grouping)
+       # grouping = create_grouping(x_axis, y_axis)
+        group = df.groupby(x_axis)[y_axis].mean()
+        fig = px.line(group)
         fig.update_layout(autosize=False, width=800, height=500)
         st.plotly_chart(fig)
         
@@ -56,6 +57,7 @@ if section == 'Data Explorer':
        ## grouping = create_grouping(x_axis, y_axis)
        group = df.groupby(x_axis)[y_axis].mean()
        fig = px.bar(group)
+       fig.update_layout()
        st.plotly_chart(fig)
         
     elif chart_type == 'area':
