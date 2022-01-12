@@ -40,7 +40,7 @@ if section == 'Data Explorer':
     x_axis = st.sidebar.selectbox("Choose column for X-axis", 
                                   df.select_dtypes(include = np.object).columns.tolist())
     
-    y_axis = st.sidebar.selectbox("Number of bikes rented during hour")
+    y_axis = st.sidebar.selectbox("Number of bikes rented during hour", ['count'])
     
     chart_type = st.sidebar.selectbox("Choose Your Chart Type", 
                                       ['line', 'bar', 'area'])
