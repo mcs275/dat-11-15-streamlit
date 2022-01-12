@@ -11,7 +11,7 @@ url = r"https://raw.githubusercontent.com/mcs275/dat-11-15-streamlit/main/bikesh
 
 num_rows = st.sidebar.number_input('Select Number of Rows to Load', 
                                    min_value = 100, 
-                                   max_value = 50000, 
+                                   max_value = 10887, 
                                    step = 100)
 
 section = st.sidebar.radio('Choose Application Section', ['Data Explorer', 
@@ -46,12 +46,12 @@ if section == 'Data Explorer':
                                       ['line', 'bar', 'area'])
     
     if chart_type == 'line':
-        grouping = create_grouping(x_axis, y_axis.sum())
-        st.line_chart(grouping, height=500)
+        grouping = create_grouping(x_axis, y_axis)
+        st.line_chart(grouping)
         
     elif chart_type == 'bar':
         grouping = create_grouping(x_axis, y_axis)
-        st.bar_chart(grouping,height=500)
+        st.bar_chart(grouping)
         
     elif chart_type == 'area':
         fig = px.strip(df[[x_axis, y_axis]], x=x_axis, y=y_axis)
