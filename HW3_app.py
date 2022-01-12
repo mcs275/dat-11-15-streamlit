@@ -46,7 +46,7 @@ if section == 'Data Explorer':
                                       ['line', 'bar', 'area'])
     
     if chart_type == 'line':
-        grouping = create_grouping(x_axis, y_axis)
+        grouping = create_grouping(x_axis, y_axis.sum())
         st.line_chart(grouping, height=500)
         
     elif chart_type == 'bar':
