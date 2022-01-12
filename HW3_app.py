@@ -47,13 +47,17 @@ if section == 'Data Explorer':
     
     if chart_type == 'line':
         grouping = create_grouping(x_axis, y_axis)
+        
+        
         fig = px.line(grouping)
         fig.update_layout(autosize=False, width=800, height=500)
         st.plotly_chart(fig)
         
     elif chart_type == 'bar':
         grouping = create_grouping(x_axis, y_axis)
-        st.bar_chart(grouping)
+        fig = px.bar(grouping)
+        st.plotly_chart(fig)
+       ## st.bar_chart(grouping)
         
     elif chart_type == 'area':
         fig = px.strip(df[[x_axis, y_axis]], x=x_axis, y=y_axis)
