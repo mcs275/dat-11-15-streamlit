@@ -44,7 +44,7 @@ if section == 'Data Explorer':
     y_axis = st.sidebar.selectbox("Choose column for y-axis", ['count'])
     
     chart_type = st.sidebar.selectbox("Choose Your Chart Type", 
-                                      ['line', 'bar', 'area'])
+                                      ['scatter', 'bar', 'area'])
     
     if chart_type == 'scatter':
        # grouping = create_grouping(x_axis, y_axis)
