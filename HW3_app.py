@@ -7,7 +7,7 @@ import pickle
 
 st.title("Predicting Number of Bikes Rented Per Hour for City Bikeshare Program")
 
-url = r"https://raw.githubusercontent.com/mcs275/dat-11-15-streamlit/main/bikeshare.csv"
+url = r"https://raw.githubusercontent.com/mcs275/dat-class-repo/main/Homework/Unit2/data/bikeshare.csv"
 
 num_rows = st.sidebar.number_input('Select Number of Rows to Load', 
                                    min_value = 100, 
