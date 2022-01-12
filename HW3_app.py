@@ -10,16 +10,17 @@ st.title("Predicting Number of Bikes Rented Per Hour for City Bikeshare Program"
 url = r"https://raw.githubusercontent.com/mcs275/dat-class-repo/main/Homework/Unit2/data/bikeshare.csv"
 
 num_rows = st.sidebar.number_input('Select Number of Rows to Load', 
-                                   min_value = 100, 
+                                   min_value = 1000, 
                                    max_value = 11000, 
-                                   step = 100)
+                                   step = 1000)
 
 section = st.sidebar.radio('Choose Application Section', ['Data Explorer', 
                                                           'Model Explorer'])
 
 @st.cache
 def load_data(num_rows):
-    df = pd.read_csv(url, nrows = num_rows )
+    df = pd.read_csv(url, nrows = num_rows)
+    df = df.sort_values(by=['datetime'])
     return df
 
 @st.cache
