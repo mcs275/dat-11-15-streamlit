@@ -44,6 +44,7 @@ if section == 'Data Explorer':
     
     chart_type = st.sidebar.selectbox("Choose Your Chart Type", 
                                       ['line', 'bar', 'area'])
+
     
     if chart_type == 'line':
        grouping = create_grouping(x_axis, y_axis)

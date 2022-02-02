@@ -59,11 +59,13 @@ if section == 'Data Explorer':
        grouping = create_grouping(x_axis, y_axis)
        fig = px.bar(grouping, text_auto=True)
        fig.update_layout(autosize=False, width=800, height=500)
+       px.title("Average Combined MPG")
        st.plotly_chart(fig)
         
     elif chart_type == 'boxplot':
         fig = px.box(df[[x_axis, y_axis]], x=x_axis, y=y_axis)
         fig.update_layout(autosize=False, width=800, height=500)
+        px.title("Distribution of MPG values")
         st.plotly_chart(fig)
     
     st.write(df)
