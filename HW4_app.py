@@ -46,7 +46,7 @@ if section == 'Data Explorer':
     y_axis = st.sidebar.selectbox("Choose column for y-axis", ['Combined MPG (FT1)'])
     
     chart_type = st.sidebar.selectbox("Choose Your Chart Type", 
-                                      ['line', 'bar', 'area'])
+                                      ['line', 'bar', 'boxplot'])
 
     
     if chart_type == 'line':
@@ -61,8 +61,8 @@ if section == 'Data Explorer':
        fig.update_layout(autosize=False, width=800, height=500)
        st.plotly_chart(fig)
         
-    elif chart_type == 'area':
-        fig = px.strip(df[[x_axis, y_axis]], x=x_axis, y=y_axis)
+    elif chart_type == 'boxplot':
+        fig = px.box(df[[x_axis, y_axis]], x=x_axis, y=y_axis)
         fig.update_layout(autosize=False, width=800, height=500)
         st.plotly_chart(fig)
     
