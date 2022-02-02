@@ -91,7 +91,7 @@ else:
                                        min_value=1, max_value =4, value=3)
     
     fuel = st.sidebar.selectbox("Select car's primary fuel type", 
-                                       df['fuel'].unique().tolist())
+                                       df['Fuel Type'].unique().tolist())
     
     alt_fuel = st.sidebar.selectbox("Select type of Alternative Fuel/Tech used by Car (None=1, Diesel=2, CNG =3, Bifuel (CNG)=4,FFV =5,Hybrid=6, Bifuel (LPG)=7", 
                                        df['Alternative Fuel/Technology'].unique().tolist())
