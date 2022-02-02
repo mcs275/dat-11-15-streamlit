@@ -12,9 +12,9 @@ st.subheader("Based on data from the EPA's fuel economy testing")
 url = r"https://raw.githubusercontent.com/mcs275/dat-class-repo/main/Homework/Unit4/database.csv"
 
 num_rows = st.sidebar.number_input('Select Number of Rows to Load', 
-                                   min_value = 100, 
-                                   max_value = 1000, 
-                                   step = 100)
+                                   min_value = 500, 
+                                   max_value = 10000, 
+                                   step = 500)
 
 section = st.sidebar.radio('Choose Application Section', ['Data Explorer', 
                                                           'Model Explorer'])
@@ -30,7 +30,7 @@ def create_grouping(x_axis, y_axis):
     return grouping
 
 def load_model():
-    with open('HW4_pipe.pkl', 'rb') as pickled_mod:
+    with open('HW4_pipe2.pkl', 'rb') as pickled_mod:
         model = pickle.load(pickled_mod)
     return model
 
