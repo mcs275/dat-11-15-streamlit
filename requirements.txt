@@ -4,3 +4,4 @@ plotly
 category_encoders
 streamlit
 scikit-learn
+GradientBoostingRegressor
