@@ -12,9 +12,9 @@ st.subheader("Based on data from the EPA's fuel economy testing")
 url = r"https://raw.githubusercontent.com/mcs275/dat-class-repo/main/Homework/Unit4/database.csv"
 
 num_rows = st.sidebar.number_input('Select Number of Rows to Load', 
-                                   min_value = 500, 
-                                   max_value = 10000, 
-                                   step = 500)
+                                   min_value = 1000, 
+                                   max_value = 38200, 
+                                   step = 1000)
 
 section = st.sidebar.radio('Choose Application Section', ['Data Explorer', 
                                                           'Model Explorer'])
@@ -74,7 +74,7 @@ else:
     
     
     year = st.sidebar.number_input("Enter Year of Car", 
-                                min_value = 1983, max_value = 2022, step = 1, value = 2003)
+                                min_value = 1984, max_value = 2022, step = 10, value = 2001)
     
     class_c = st.sidebar.selectbox("Choose class of car", 
                                      df['Class'].unique().tolist())
@@ -83,17 +83,17 @@ else:
     drive = st.sidebar.selectbox("Choose drive type for car", 
                                      df['Drive'].unique().tolist())
 
-    cylinders = st.sidebar.number_input("Choose number of car's cylinders", 
-                                  min_value=1, max_value =4, value=3)
+    cylinders = st.sidebar.number_input("Choose number of engine cylinders", 
+                                  min_value=2, max_value =20, value=6, step=1)
    
     
     displacement = st.sidebar.number_input("Choose engine displacement",
-                                       min_value=1, max_value =4, value=3)
+                                       min_value=0.0, max_value =10.0, value=3.0, step=0.5)
     
     fuel = st.sidebar.selectbox("Select car's primary fuel type", 
                                        df['Fuel Type'].unique().tolist())
     
-    alt_fuel = st.sidebar.selectbox("Select type of Alternative Fuel/Tech used by Car (None=1, Diesel=2, CNG =3, Bifuel (CNG)=4,FFV =5,Hybrid=6, Bifuel (LPG)=7", 
+    alt_fuel = st.sidebar.selectbox("Select type of Alternative Fuel/Tech used by Car", 
                                        df['Alternative Fuel/Technology'].unique().tolist())
     
  
@@ -110,5 +110,5 @@ else:
     sample = pd.DataFrame(sample, index = [0])
     prediction = model.predict(sample)[0]
     
-    st.title(f"Predicted Fuel Economy of Vehicle: {int(prediction)}")
+    st.title(f"Predicted Fuel Economy of Vehicle: {int(prediction)} Miles per Gallon")
     
