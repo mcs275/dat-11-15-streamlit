@@ -77,11 +77,11 @@ else:
                                 min_value = 1983, max_value = 2022, step = 1, value = 2003)
     
     class_c = st.sidebar.selectbox("Choose class of car", 
-                                     df['class'].unique().tolist())
+                                     df['Class'].unique().tolist())
                                          
                               
     drive = st.sidebar.selectbox("Choose drive type for car", 
-                                     df['drive'].unique().tolist())
+                                     df['Drive'].unique().tolist())
 
     cylinders = st.sidebar.number_input("Choose number of car's cylinders", 
                                   min_value=1, max_value =4, value=3)
